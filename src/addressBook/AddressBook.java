@@ -1,22 +1,18 @@
 package addressBook;
 
+import java.util.Scanner;
+
+/*
+ * Added AddressBookmain class to create object of Main class.
+ */
+
 public class AddressBook {
 
 	public static void main(String[] args) {
-
 		System.out.println("Welcome to Address Book Program");
-		contactDetails newContact = new contactDetails();
-/*
- *Use to perform a certain operation on our set
- */
-		newContact.setFirstName("Rachappa \n");
-		newContact.setLastName("Minajagi \n");
-		newContact.setAddressCity("Gadag\n");
-		newContact.setState("Karnataka \n");
-		newContact.setZip(582101);
-		newContact.setPhoneNumber("9686127142 \n");
-		newContact.setEmail("rachotism@gmail.com\n");
-		System.out.println("The Contact is  \n" + newContact);
+
+		newAddressBook person = new newAddressBook();
+		person.addContact();
 
 	}
 
@@ -36,7 +32,7 @@ class contactDetails {
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName; //this keyword is used to point the Current Object 
+		this.firstName = firstName; // this keyword is used to point the Current Object
 	}
 
 	public String getLastName() {
@@ -93,4 +89,51 @@ class contactDetails {
 
 	}
 
+}
+
+class newAddressBook {
+
+	Scanner sc = new Scanner(System.in);
+
+	public void addContact() {
+		contactDetails person = new contactDetails();
+		System.out.println("Enter First Name: ");
+		String firstName = sc.nextLine();
+
+		System.out.println("Enter last Name: ");
+		String lastName = sc.nextLine();
+
+		System.out.println("Enter your addressCity: ");
+		String addressCity = sc.nextLine();
+
+		System.out.println("Enter your state: ");
+		String state = sc.nextLine();
+
+		System.out.println("Enter zip code : ");
+		Long zip = sc.nextLong();
+		sc.nextLine();
+
+		System.out.println("Enter phone number: ");
+		String phoneNumber = sc.nextLine();
+		sc.nextLine();
+
+		System.out.println("Enter your EMail ID: ");
+		String email = sc.nextLine();
+
+		person.setFirstName(firstName);
+		
+		person.setLastName(lastName);
+		
+		person.setAddressCity(addressCity);
+		
+		person.setState(state);
+		
+		person.setZip(zip.intValue());
+		
+		person.setPhoneNumber(phoneNumber);
+		
+		person.setEmail(email);
+
+		System.out.println("The Contact Details of " + firstName + "\n" + person);
+	}
 }
