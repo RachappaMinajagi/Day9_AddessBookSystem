@@ -94,6 +94,7 @@ class contactDetails {
 class newAddressBook {
 
 	Scanner sc = new Scanner(System.in);
+	private contactDetails person;
 
 	public void addContact() {
 		contactDetails person = new contactDetails();
@@ -121,19 +122,29 @@ class newAddressBook {
 		String email = sc.nextLine();
 
 		person.setFirstName(firstName);
-		
+
 		person.setLastName(lastName);
-		
+
 		person.setAddressCity(addressCity);
-		
+
 		person.setState(state);
-		
+
 		person.setZip(zip.intValue());
-		
+
 		person.setPhoneNumber(phoneNumber);
-		
+
 		person.setEmail(email);
 
 		System.out.println("The Contact Details of " + firstName + "\n" + person);
+	}
+// Editing existing contact person
+	public void editContact() {
+		System.out.println("Enter the firstName of person");
+		String editName = sc.nextLine();
+		if (editName.equalsIgnoreCase(person.getFirstName()))
+			addContact();
+		else
+			System.out.println("The Entered First Name Is Not Match");
+		editContact();
 	}
 }
